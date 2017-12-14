@@ -14,7 +14,7 @@ var distance = function (x0, y0, x1, y1) {
 
 var furthestPoint = distance(targetX, targetY, 0, 0);
 
-var findIt = function(e) {
+var WhereItAt = function(e) {
   var dist = distance(targetX, targetY, e.clientX, e.clientY);
     var val = Math.floor((dist/furthestPoint)*255);
     document.body.style.backgroundColor = "rgb(" + 0 + "," + 0 + "," + val + ")";
@@ -28,4 +28,4 @@ var found = function(distance) {
 }
 
 
-box.addEventListener("mousemove", findIt);
+box.addEventListener("mousemove", WhereItAt);
