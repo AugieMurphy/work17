@@ -13,18 +13,23 @@ console.log( "box width: " + boxWidth );
 
 //calculate distance between current mouse pos and target
 var distance = function (x0, y0, x1, y1) {
-  /* YOUR IMPLEMENTATION */
-};
+  return Math.sqrt((x1-x0)*(x1-x0) + (y1-y0)*(y1-y0));
+  };
 
+var furthestPoint = distance(targetX, targetY, 0, 0);
 
 var findIt = function(e) {
-  /* YOUR IMPLEMENTATION */
+  var dist = distance(targetX, targetY, e.clientX, e.clientY);
+    var val = Math.floor((dist/furthestPoint)*255);
+    document.body.style.backgroundColor = "rgb(" + val + "," + val + "," + val + ")";
+    found(dist)
 };
 
-/*
-your OTHER FXNS
+var found = function(distance) {
+    if (distance < 25){
+	document.body.style.backgroundColor = "purple";
+    }
+}
 
-*/
 
 box.addEventListener("mousemove", findIt);
-
