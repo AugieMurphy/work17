@@ -4,12 +4,8 @@ var boxWidth = box.offsetWidth;
 
 //hardcode target as center
 //randomize later
-var targetX = boxWidth / 2;
-var targetY = boxHeight / 2;
-
-
-console.log( "box height: " + boxHeight );
-console.log( "box width: " + boxWidth );
+var targetX = Math.floor(Math.random() * boxWidth)
+var targetY = Math.floor(Math.random() * boxHeight)
 
 //calculate distance between current mouse pos and target
 var distance = function (x0, y0, x1, y1) {
@@ -21,13 +17,13 @@ var furthestPoint = distance(targetX, targetY, 0, 0);
 var findIt = function(e) {
   var dist = distance(targetX, targetY, e.clientX, e.clientY);
     var val = Math.floor((dist/furthestPoint)*255);
-    document.body.style.backgroundColor = "rgb(" + val + "," + val + "," + val + ")";
+    document.body.style.backgroundColor = "rgb(" + 0 + "," + 0 + "," + val + ")";
     found(dist)
 };
 
 var found = function(distance) {
     if (distance < 25){
-	document.body.style.backgroundColor = "purple";
+	document.body.style.backgroundColor = "mediumaquamarine";
     }
 }
 
